@@ -3,28 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="15dp">
+    android:layout_height="wrap_content">
+
 
     <ImageView
-        android:id="@+id/categoryImage"
+        android:id="@+id/typeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/category_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/type_button"
         app:srcCompat="@drawable/category" />
 
     <TextView
-        android:id="@+id/categotyTitle"
+        android:id="@+id/typeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="Category"
+        android:text="Type"
         android:textColor="@color/black"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/categoryImage"
-        app:layout_constraintEnd_toEndOf="@+id/categoryImage"
-        app:layout_constraintStart_toStartOf="@+id/categoryImage"
-        app:layout_constraintTop_toTopOf="@+id/categoryImage" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/typeImage"
+        app:layout_constraintStart_toStartOf="@+id/typeImage"
+        app:layout_constraintTop_toTopOf="@+id/typeImage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

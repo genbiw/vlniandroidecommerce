@@ -8,4 +8,5 @@
     <string name="app_title">App</string>
     <string name="filter">Filter</string>
     <string name="category_button">Button</string>
+    <string name="type_button">Button</string>
 </resources>
