@@ -38,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         typeList.add(new Type(2, "Samsung"));
         typeList.add(new Type(3, "Huawei"));
         typeList.add(new Type(4, "Sony"));
+        typeList.add(new Type(5, "LG"));
+        typeList.add(new Type(6, "Xiaomi"));
+        typeList.add(new Type(7, "Vivo"));
+        typeList.add(new Type(8, "Oppo"));
+        typeList.add(new Type(9, "HP"));
+        typeList.add(new Type(10, "Lenovo"));
+
+
 
         setTypeRecycler(typeList);
 
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setTypeRecycler(List<Type> typeList) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
 
         typeRecycler = findViewById(R.id.typeRecycler);
         typeRecycler.setLayoutManager(layoutManager);

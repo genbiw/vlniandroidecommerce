@@ -4,14 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vlnie_commerce.R;
-import com.example.vlnie_commerce.model.Category;
 import com.example.vlnie_commerce.model.Type;
 
 import java.util.List;
@@ -29,7 +27,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.TypeViewHolder
     @NonNull
     @Override
     public TypeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View typeItems = LayoutInflater.from(context).inflate(R.layout.type_item, parent, true);
+        View typeItems = LayoutInflater.from(context).inflate(R.layout.type_item, parent, false);
         return new TypeViewHolder(typeItems);
     }
 
