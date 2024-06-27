@@ -133,7 +133,7 @@
         tools:listitem="@layout/type_item" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/couseRecycler"
+        android:id="@+id/courseRecycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"

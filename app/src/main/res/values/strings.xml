@@ -9,4 +9,6 @@
     <string name="filter">Filter</string>
     <string name="category_button">Button</string>
     <string name="type_button">Button</string>
+    <string name="course_start_date">Start date</string>
+    <string name="course_level">Level</string>
 </resources>

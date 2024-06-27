@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.vlnie_commerce.adapter.CategoryAdapter;
+import com.example.vlnie_commerce.adapter.CourseAdapter;
 import com.example.vlnie_commerce.adapter.TypeAdapter;
 import com.example.vlnie_commerce.model.Category;
+import com.example.vlnie_commerce.model.Course;
 import com.example.vlnie_commerce.model.Type;
 
 import java.util.ArrayList;
@@ -16,10 +18,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView categoryRecycler;
+    RecyclerView categoryRecycler, typeRecycler, courseRecycler;
     CategoryAdapter categoryAdapter;
-    RecyclerView typeRecycler;
     TypeAdapter typeAdapter;
+    CourseAdapter courseAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +47,24 @@ public class MainActivity extends AppCompatActivity {
         typeList.add(new Type(9, "HP"));
         typeList.add(new Type(10, "Lenovo"));
 
-
-
         setTypeRecycler(typeList);
 
+        List<Course> courseList = new ArrayList<>();
+        courseList.add(new Course(1, "java", "Profession Java\ndeveloper", "1 January", "beginner", "#424345"));
+        courseList.add(new Course(2, "python", "Profession Python\ndeveloper", "10 January", "beginner", "#9FA52D"));
 
+        setCourseRecycler(courseList);
+
+    }
+
+    private void setCourseRecycler(List<Course> courseList) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+
+        courseRecycler = findViewById(R.id.courseRecycler);
+        courseRecycler.setLayoutManager(layoutManager);
+
+        courseAdapter = new CourseAdapter(this, courseList);
+        courseRecycler.setAdapter(courseAdapter);
     }
 
     private void setTypeRecycler(List<Type> typeList) {
