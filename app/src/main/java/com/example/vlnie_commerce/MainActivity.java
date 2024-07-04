@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView categoryRecycler, typeRecycler, courseRecycler;
     CategoryAdapter categoryAdapter;
     TypeAdapter typeAdapter;
-    CourseAdapter courseAdapter;
+    static CourseAdapter courseAdapter;
+    static List<Course> courseList = new ArrayList<>();
+    static List<Course> fullCoursesList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         setTypeRecycler(typeList);
 
-        List<Course> courseList = new ArrayList<>();
-        courseList.add(new Course(1, "java", "Profession Java\ndeveloper", "1 January", "beginner", "#424345", "The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!"));
-        courseList.add(new Course(2, "python", "Profession Python\ndeveloper", "10 January", "beginner", "#9FA52D", "The Python training program is tailored for newcomers in this field. During the program, you will explore creating graphical applications for desktops, delve into web development using frameworks like Django, learn to develop robust Android applications, and gain a comprehensive understanding of the Python language itself!"));
+
+        courseList.add(new Course(1, "java", "Profession Java\ndeveloper", "1 January", "beginner", "#424345", "The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!", 1));
+        courseList.add(new Course(2, "python", "Profession Python\ndeveloper", "10 January", "beginner", "#9FA52D", "The Python training program is tailored for newcomers in this field. During the program, you will explore creating graphical applications for desktops, delve into web development using frameworks like Django, learn to develop robust Android applications, and gain a comprehensive understanding of the Python language itself!", 2));
+
+        fullCoursesList.addAll(courseList);
 
         setCourseRecycler(courseList);
 
@@ -87,5 +91,25 @@ public class MainActivity extends AppCompatActivity {
 
         categoryAdapter = new CategoryAdapter(this, categoryList);
         categoryRecycler.setAdapter(categoryAdapter);
+    }
+
+    public static void showCoursesByCategory(int category){
+
+        courseList.clear();
+        courseList.addAll(fullCoursesList);
+
+        List<Course> filterCourses = new ArrayList<>();
+
+        for(Course c : courseList){
+            if(c.getCategory() == category)
+                filterCourses.add(c);
+
+        }
+
+        courseList.clear();
+        courseList.addAll(filterCourses);
+
+        courseAdapter.notifyDataSetChanged();
+
     }
 }

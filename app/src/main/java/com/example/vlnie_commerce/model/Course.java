@@ -1,17 +1,26 @@
 package com.example.vlnie_commerce.model;
 
 public class Course {
-    int id;
+    int id, category;
     String img, title, date, level, color, text;
 
-    public Course(int id, String img, String title, String date, String level, String color, String text) {
+    public Course(int id, String img, String title, String date, String level, String color, String text, int category) {
         this.id = id;
+        this.category = category;
         this.img = img;
         this.title = title;
         this.date = date;
         this.level = level;
         this.color = color;
         this.text = text;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 
     public String getText() {
