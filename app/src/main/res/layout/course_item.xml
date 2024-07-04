@@ -24,13 +24,14 @@
             android:orientation="vertical"
             android:paddingBottom="30dp"
             >
+
             <ImageView
                 android:id="@+id/courseImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/java"
                 android:contentDescription="@string/app_title"
-                />
+                android:transitionName="courseImage"
+                app:srcCompat="@drawable/java" />
 
             <TextView
                 android:id="@+id/courseTitle"

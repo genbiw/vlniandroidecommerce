@@ -11,4 +11,5 @@
     <string name="type_button">Button</string>
     <string name="course_start_date">Start date</string>
     <string name="course_level">Level</string>
+    <string name="couse_desc">The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!</string>
 </resources>

@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setTypeRecycler(typeList);
 
         List<Course> courseList = new ArrayList<>();
-        courseList.add(new Course(1, "java", "Profession Java\ndeveloper", "1 January", "beginner", "#424345"));
-        courseList.add(new Course(2, "python", "Profession Python\ndeveloper", "10 January", "beginner", "#9FA52D"));
+        courseList.add(new Course(1, "java", "Profession Java\ndeveloper", "1 January", "beginner", "#424345", "The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!"));
+        courseList.add(new Course(2, "python", "Profession Python\ndeveloper", "10 January", "beginner", "#9FA52D", "The Python training program is tailored for newcomers in this field. During the program, you will explore creating graphical applications for desktops, delve into web development using frameworks like Django, learn to develop robust Android applications, and gain a comprehensive understanding of the Python language itself!"));
 
         setCourseRecycler(courseList);
 
