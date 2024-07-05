@@ -13,7 +13,7 @@
         android:theme="@style/Theme.VlniEcommerce"
         tools:targetApi="31">
         <activity
-            android:name=".CoursePage"
+            android:name=".DevicePage"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

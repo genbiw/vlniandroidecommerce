@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vlnie_commerce.MainActivity;
 import com.example.vlnie_commerce.R;
 import com.example.vlnie_commerce.model.Type;
 
@@ -32,8 +33,15 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.TypeViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TypeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TypeAdapter.TypeViewHolder holder, int position) {
         holder.typeTitle.setText(types.get(position).getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.showDevicesByType(types.get(position).getId());
+            }
+        });
     }
 
     @Override
@@ -44,9 +52,9 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.TypeViewHolder
     public static final class TypeViewHolder extends RecyclerView.ViewHolder {
 
         TextView typeTitle;
-
         public TypeViewHolder(@NonNull View itemView) {
             super(itemView);
+
             typeTitle = itemView.findViewById(R.id.typeTitle);
         }
     }

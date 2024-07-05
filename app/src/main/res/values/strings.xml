@@ -4,12 +4,16 @@
     <string name="contacts_text">Contacts</string>
     <string name="about_text">About us</string>
     <string name="main_scene_text">Main</string>
-    <string name="courses_title">Courses</string>
+    <string name="store_title">Store</string>
     <string name="app_title">App</string>
     <string name="filter">Filter</string>
     <string name="category_button">Button</string>
     <string name="type_button">Button</string>
     <string name="course_start_date">Start date</string>
     <string name="course_level">Level</string>
+    <string name="device">iPhone 15 Pro</string>
+    <string name="price">1200 Euro</string>
+    <string name="raiting">Raiting</string>
+    <string name="device_info">Model year: 2023. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640</string>
     <string name="couse_desc">The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!</string>
 </resources>

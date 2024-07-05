@@ -1,11 +1,11 @@
 package com.example.vlnie_commerce.model;
 
-public class Category {
+public class Brand {
 
     int id;
     String title;
 
-    public Category(int id, String title) {
+    public Brand(int id, String title) {
         this.id = id;
         this.title = title;
     }

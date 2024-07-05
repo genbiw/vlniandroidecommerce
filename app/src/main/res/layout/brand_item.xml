@@ -6,24 +6,24 @@
     android:layout_marginEnd="10dp">
 
     <ImageView
-        android:id="@+id/categoryImage"
+        android:id="@+id/brandImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/category_button"
+        android:contentDescription="@string/type_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/category" />
+        app:srcCompat="@drawable/brand" />
 
     <TextView
-        android:id="@+id/categoryTitle"
+        android:id="@+id/brandTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="@string/category_button"
+        android:text="@string/type_button"
         android:textColor="@color/black"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/categoryImage"
-        app:layout_constraintEnd_toEndOf="@+id/categoryImage"
-        app:layout_constraintStart_toStartOf="@+id/categoryImage"
-        app:layout_constraintTop_toTopOf="@+id/categoryImage" />
+        app:layout_constraintBottom_toBottomOf="@+id/brandImage"
+        app:layout_constraintEnd_toEndOf="@+id/brandImage"
+        app:layout_constraintStart_toStartOf="@+id/brandImage"
+        app:layout_constraintTop_toTopOf="@+id/brandImage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

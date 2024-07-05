@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.vlnie_commerce.adapter.CategoryAdapter;
-import com.example.vlnie_commerce.adapter.CourseAdapter;
 import com.example.vlnie_commerce.adapter.TypeAdapter;
-import com.example.vlnie_commerce.model.Category;
-import com.example.vlnie_commerce.model.Course;
+import com.example.vlnie_commerce.adapter.DeviceAdapter;
+import com.example.vlnie_commerce.adapter.BrandAdapter;
+import com.example.vlnie_commerce.model.Brand;
+import com.example.vlnie_commerce.model.Device;
 import com.example.vlnie_commerce.model.Type;
 
 import java.util.ArrayList;
@@ -18,57 +18,57 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView categoryRecycler, typeRecycler, courseRecycler;
-    CategoryAdapter categoryAdapter;
+    RecyclerView typeRecycler, brandRecycler, deviceRecycler;
     TypeAdapter typeAdapter;
-    static CourseAdapter courseAdapter;
-    static List<Course> courseList = new ArrayList<>();
-    static List<Course> fullCoursesList = new ArrayList<>();
+    BrandAdapter brandAdapter;
+    static DeviceAdapter deviceAdapter;
+    static List<Device> deviceList = new ArrayList<>();
+    static List<Device> fullDevicesList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<Category> categoryList = new ArrayList<>();
-        categoryList.add(new Category(1, "TV"));
-        categoryList.add(new Category(2, "Phone"));
-        categoryList.add(new Category(3, "Laptop"));
-        categoryList.add(new Category(4, "Tablet"));
-
-        setCategoryRecycler(categoryList);
-
         List<Type> typeList = new ArrayList<>();
-        typeList.add(new Type(1, "Apple"));
-        typeList.add(new Type(2, "Samsung"));
-        typeList.add(new Type(3, "Huawei"));
-        typeList.add(new Type(4, "Sony"));
-        typeList.add(new Type(5, "LG"));
-        typeList.add(new Type(6, "Xiaomi"));
-        typeList.add(new Type(7, "Vivo"));
-        typeList.add(new Type(8, "Oppo"));
-        typeList.add(new Type(9, "HP"));
-        typeList.add(new Type(10, "Lenovo"));
+        typeList.add(new Type(1, "TV"));
+        typeList.add(new Type(2, "Phone"));
+        typeList.add(new Type(3, "Laptop"));
+        typeList.add(new Type(4, "Tablet"));
 
         setTypeRecycler(typeList);
 
+        List<Brand> brandList = new ArrayList<>();
+        brandList.add(new Brand(1, "Apple"));
+        brandList.add(new Brand(2, "Samsung"));
+        brandList.add(new Brand(3, "Huawei"));
+        brandList.add(new Brand(4, "Sony"));
+        brandList.add(new Brand(5, "LG"));
+        brandList.add(new Brand(6, "Xiaomi"));
+        brandList.add(new Brand(7, "Vivo"));
+        brandList.add(new Brand(8, "Oppo"));
+        brandList.add(new Brand(9, "HP"));
+        brandList.add(new Brand(10, "Lenovo"));
 
-        courseList.add(new Course(1, "java", "Profession Java\ndeveloper", "1 January", "beginner", "#424345", "The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!", 1));
-        courseList.add(new Course(2, "python", "Profession Python\ndeveloper", "10 January", "beginner", "#9FA52D", "The Python training program is tailored for newcomers in this field. During the program, you will explore creating graphical applications for desktops, delve into web development using frameworks like Django, learn to develop robust Android applications, and gain a comprehensive understanding of the Python language itself!", 2));
+        setBrandRecycler(brandList);
 
-        fullCoursesList.addAll(courseList);
 
-        setCourseRecycler(courseList);
+        deviceList.add(new Device(1, 1, 1, 9, "iphone15pro", "iPhone 15 Pro", "2000", "#424345", "Model year: 2023. \\nDisplay diagonal, inch: 6.1. \\nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(2, 2, 2, 7, "iphone14", "iPhone 14", "1000", "#9FA52D", "Model year: 2021. \\nDisplay diagonal, inch: 6.1. \\nDisplay resolution: 1080x2640"));
+
+        fullDevicesList.addAll(deviceList);
+
+        setDeviceRecycler(deviceList);
 
     }
 
-    private void setCourseRecycler(List<Course> courseList) {
+    private void setDeviceRecycler(List<Device> deviceList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
-        courseRecycler = findViewById(R.id.courseRecycler);
-        courseRecycler.setLayoutManager(layoutManager);
+        deviceRecycler = findViewById(R.id.deviceRecycler);
+        deviceRecycler.setLayoutManager(layoutManager);
 
-        courseAdapter = new CourseAdapter(this, courseList);
-        courseRecycler.setAdapter(courseAdapter);
+        deviceAdapter = new DeviceAdapter(this, deviceList);
+        deviceRecycler.setAdapter(deviceAdapter);
     }
 
     private void setTypeRecycler(List<Type> typeList) {
@@ -83,33 +83,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setCategoryRecycler(List<Category> categoryList) {
+    private void setBrandRecycler(List<Brand> brandList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
 
-        categoryRecycler = findViewById(R.id.categoryRecycler);
-        categoryRecycler.setLayoutManager(layoutManager);
+        brandRecycler = findViewById(R.id.brandRecycler);
+        brandRecycler.setLayoutManager(layoutManager);
 
-        categoryAdapter = new CategoryAdapter(this, categoryList);
-        categoryRecycler.setAdapter(categoryAdapter);
+        brandAdapter = new BrandAdapter(this, brandList);
+        brandRecycler.setAdapter(brandAdapter);
     }
 
-    public static void showCoursesByCategory(int category){
+    public static void showDevicesByType(int type){
 
-        courseList.clear();
-        courseList.addAll(fullCoursesList);
+        deviceList.clear();
+        deviceList.addAll(fullDevicesList);
 
-        List<Course> filterCourses = new ArrayList<>();
+        List<Device> filterDevices = new ArrayList<>();
 
-        for(Course c : courseList){
-            if(c.getCategory() == category)
-                filterCourses.add(c);
+        for(Device c : deviceList){
+            if(c.getType() == type)
+                filterDevices.add(c);
 
         }
 
-        courseList.clear();
-        courseList.addAll(filterCourses);
+        deviceList.clear();
+        deviceList.addAll(filterDevices);
 
-        courseAdapter.notifyDataSetChanged();
+        deviceAdapter.notifyDataSetChanged();
 
     }
 }
