@@ -13,7 +13,8 @@
     <string name="course_level">Level</string>
     <string name="device">iPhone 15 Pro</string>
     <string name="price">1200 Euro</string>
-    <string name="raiting">Raiting</string>
+    <string name="rating">Raiting</string>
+    <string name="rating_number">10</string>
     <string name="device_info">Model year: 2023. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640</string>
     <string name="couse_desc">The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!</string>
 </resources>

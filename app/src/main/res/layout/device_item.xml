@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="parent" >
         <LinearLayout
             android:id="@+id/deviceBg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:background="@color/black"
             android:orientation="vertical"
             >
@@ -42,17 +42,34 @@
                 android:textSize="20sp"
                 android:layout_gravity="right"
                 android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="@string/raiting"
-                android:textColor="@color/white"
-                android:layout_gravity="right"
-                android:layout_marginEnd="10dp"
-                android:textSize="14sp" />
+                android:layout_gravity="right">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@string/rating"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@string/rating_number"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
 
         </LinearLayout>
