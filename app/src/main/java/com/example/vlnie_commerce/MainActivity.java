@@ -52,8 +52,18 @@ public class MainActivity extends AppCompatActivity {
         setBrandRecycler(brandList);
 
 
-        deviceList.add(new Device(1, 1, 1, 9, "iphone15pro", "iPhone 15 Pro", "2000", "#424345", "Model year: 2023. \\nDisplay diagonal, inch: 6.1. \\nDisplay resolution: 1080x2640"));
-        deviceList.add(new Device(2, 2, 2, 7, "iphone14", "iPhone 14", "1000", "#9FA52D", "Model year: 2021. \\nDisplay diagonal, inch: 6.1. \\nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(1, 2, 1, 9, "iphone15pro", "iPhone 15 Pro", "2000", "#424345", "Model year: 2023. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(2, 2, 1, 7, "iphone14", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(3, 1, 1, 7, "appletv", "Apple TV", "500", "#424345", "Model year: 2021"));
+        deviceList.add(new Device(4, 3, 1, 7, "imac", "Apple 2023 iMac MQRQ3HN/A AIO Desktop (Apple M3/ 8 GB/ 256 GB SSD/ macOS/ 10 Core GPU)", "5000", "#424345", "Model year: 2023. \nThickness: 147mm \nWeight: 4.43 kg"));
+        deviceList.add(new Device(5, 3, 1, 7, "apple_macbook_pro_14_2023_laptop", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(6, 3, 3, 7, "huawei_matebook_14", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(7, 2, 3, 7, "huawei_p60", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(8, 3, 2, 7, "samsung_galaxy_book_3_ultra", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(9, 2, 2, 7, "samsung_galaxy_note_21", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+        deviceList.add(new Device(10, 1, 4, 7, "sony_kd_85x80lu", "iPhone 14", "1000", "#9FA52D", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
+
+
 
         fullDevicesList.addAll(deviceList);
 

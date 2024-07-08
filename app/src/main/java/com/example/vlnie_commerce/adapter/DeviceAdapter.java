@@ -57,8 +57,11 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
         holder.deviceImage.setImageResource(imageId);
 
         String name = devices.get(position).getName();
+        Integer raiting = devices.get(position).getRaiting();
+        String info = devices.get(position).getInfo();
 
         holder.deviceName.setText(name);
+        holder.deviceRating.setText(String.valueOf(raiting));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +76,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
                 intent.putExtra("deviceBg", Color.parseColor(colorString));
                 intent.putExtra("deviceImage", imageId);
                 intent.putExtra("deviceName", name);
+                intent.putExtra("deviceText", info);
 
                 context.startActivity(intent, options.toBundle());
             }
@@ -90,6 +94,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
         LinearLayout deviceBg;
         ImageView deviceImage;
         TextView deviceName;
+        TextView deviceRating;
 
         public DeviceViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +102,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
             deviceBg = itemView.findViewById(R.id.deviceBg);
             deviceImage = itemView.findViewById(R.id.deviceImage);
             deviceName = itemView.findViewById(R.id.deviceName);
+            deviceRating = itemView.findViewById(R.id.rating);
         }
     }
 }
