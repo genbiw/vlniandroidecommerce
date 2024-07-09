@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.vlnie_commerce.adapter.TypeAdapter;
 import com.example.vlnie_commerce.adapter.DeviceAdapter;
@@ -12,6 +14,8 @@ import com.example.vlnie_commerce.adapter.BrandAdapter;
 import com.example.vlnie_commerce.model.Brand;
 import com.example.vlnie_commerce.model.Device;
 import com.example.vlnie_commerce.model.Type;
+
+import org.infobip.mobile.messaging.MobileMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +73,19 @@ public class MainActivity extends AppCompatActivity {
 
         setDeviceRecycler(deviceList);
 
+        ImageView resetFilterImageView = findViewById(R.id.resetFilterImageView);
+        resetFilterImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetFiltering();
+                deviceAdapter.notifyDataSetChanged();
+            }
+        });
+
+        new MobileMessaging
+                .Builder(getApplication())
+                .build();
+
     }
 
     private void setDeviceRecycler(List<Device> deviceList) {
@@ -121,5 +138,27 @@ public class MainActivity extends AppCompatActivity {
 
         deviceAdapter.notifyDataSetChanged();
 
+    }
+
+    public static void showDeviceByBrand(int brand){
+        deviceList.clear();
+        deviceList.addAll(fullDevicesList);
+
+        List<Device> filterDevices = new ArrayList<>();
+
+        for (Device c : deviceList){
+            if(c.getBrand() == brand)
+                filterDevices.add(c);
+        }
+
+        deviceList.clear();
+        deviceList.addAll(filterDevices);
+
+        deviceAdapter.notifyDataSetChanged();
+    }
+
+    public static void resetFiltering(){
+        deviceList.clear();
+        deviceList.addAll(fullDevicesList);
     }
 }

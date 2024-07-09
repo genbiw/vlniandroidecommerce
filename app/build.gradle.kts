@@ -1,5 +1,9 @@
 plugins {
     id("com.android.application")
+
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
+
 }
 
 android {
@@ -49,4 +53,15 @@ dependencies {
     implementation("androidx.appcompat:appcompat:$appcompat_version")
     // For loading and tinting drawables on older versions of the platform
     implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
+
+    implementation ("com.infobip:infobip-mobile-messaging-android-sdk:12.7.2@aar")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-analytics")
+
 }

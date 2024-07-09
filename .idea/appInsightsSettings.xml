@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.vlnie_commerce" />
+                  <option name="mobileSdkAppId" value="1:160809947:android:52b75ba7b4022ae166ddfe" />
+                  <option name="projectId" value="vlni-ecommerce" />
+                  <option name="projectNumber" value="160809947" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

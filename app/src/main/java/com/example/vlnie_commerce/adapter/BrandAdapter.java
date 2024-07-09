@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vlnie_commerce.MainActivity;
 import com.example.vlnie_commerce.R;
 import com.example.vlnie_commerce.model.Brand;
 
@@ -34,6 +35,13 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHol
     @Override
     public void onBindViewHolder(@NonNull BrandViewHolder holder, int position) {
         holder.brandTitle.setText(brands.get(position).getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.showDeviceByBrand(brands.get(position).getId());
+            }
+        });
     }
 
     @Override

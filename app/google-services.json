@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "160809947",
+    "project_id": "vlni-ecommerce",
+    "storage_bucket": "vlni-ecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160809947:android:52b75ba7b4022ae166ddfe",
+        "android_client_info": {
+          "package_name": "com.example.vlnie_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZaatxntRWPLbZf7spaoXqzCm5v8U0i1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
