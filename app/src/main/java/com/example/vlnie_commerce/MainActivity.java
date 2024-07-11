@@ -15,8 +15,6 @@ import com.example.vlnie_commerce.model.Brand;
 import com.example.vlnie_commerce.model.Device;
 import com.example.vlnie_commerce.model.Type;
 
-import org.infobip.mobile.messaging.MobileMessaging;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     static DeviceAdapter deviceAdapter;
     static List<Device> deviceList = new ArrayList<>();
     static List<Device> fullDevicesList = new ArrayList<>();
+    static int selectedType = -1;  // -1 indicates no type selected
+    static int selectedBrand = -1; // -1 indicates no brand selected
+    static boolean isDeviceListInitialized = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,24 @@ public class MainActivity extends AppCompatActivity {
 
         setBrandRecycler(brandList);
 
+        if (!isDeviceListInitialized) {
+            initializeDeviceList();
+            isDeviceListInitialized = true;
+        }
 
+        setDeviceRecycler(deviceList);
+
+        ImageView resetFilterImageView = findViewById(R.id.resetFilterImageView);
+        resetFilterImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetFiltering();
+            }
+        });
+
+    }
+
+    private void initializeDeviceList() {
         deviceList.add(new Device(1, 2, 1, 9, "iphone15pro", "iPhone 15 Pro", "2000", "#424345", "Model year: 2023. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
         deviceList.add(new Device(2, 2, 1, 7, "iphone14", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
         deviceList.add(new Device(3, 1, 1, 7, "appletv", "Apple TV", "500", "#424345", "Model year: 2021"));
@@ -67,26 +85,8 @@ public class MainActivity extends AppCompatActivity {
         deviceList.add(new Device(9, 2, 2, 7, "samsung_galaxy_note_21", "iPhone 14", "1000", "#424345", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
         deviceList.add(new Device(10, 1, 4, 7, "sony_kd_85x80lu", "iPhone 14", "1000", "#9FA52D", "Model year: 2021. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640"));
 
-
-
         fullDevicesList.addAll(deviceList);
-
-        setDeviceRecycler(deviceList);
-
-        ImageView resetFilterImageView = findViewById(R.id.resetFilterImageView);
-        resetFilterImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetFiltering();
-                deviceAdapter.notifyDataSetChanged();
-            }
-        });
-
-        new MobileMessaging
-                .Builder(getApplication())
-                .build();
-
-    }
+    };
 
     private void setDeviceRecycler(List<Device> deviceList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
@@ -121,44 +121,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void showDevicesByType(int type){
-
-        deviceList.clear();
-        deviceList.addAll(fullDevicesList);
-
-        List<Device> filterDevices = new ArrayList<>();
-
-        for(Device c : deviceList){
-            if(c.getType() == type)
-                filterDevices.add(c);
-
-        }
-
-        deviceList.clear();
-        deviceList.addAll(filterDevices);
-
-        deviceAdapter.notifyDataSetChanged();
-
+        selectedType = type;  // Update the selected type
+        filterDevices();
     }
 
     public static void showDeviceByBrand(int brand){
+        selectedBrand = brand;  // Update the selected brand
+        filterDevices();
+    }
+
+    private static void filterDevices() {
         deviceList.clear();
         deviceList.addAll(fullDevicesList);
 
-        List<Device> filterDevices = new ArrayList<>();
+        List<Device> filteredDevices = new ArrayList<>();
 
-        for (Device c : deviceList){
-            if(c.getBrand() == brand)
-                filterDevices.add(c);
+        for (Device c : fullDevicesList) {
+            if ((selectedType == -1 || c.getType() == selectedType) &&
+                    (selectedBrand == -1 || c.getBrand() == selectedBrand)) {
+                filteredDevices.add(c);
+            }
         }
 
         deviceList.clear();
-        deviceList.addAll(filterDevices);
+        deviceList.addAll(filteredDevices);
 
         deviceAdapter.notifyDataSetChanged();
     }
 
-    public static void resetFiltering(){
+    public void resetFiltering(){
+        selectedType = -1;  // Reset the selected type
+        selectedBrand = -1; // Reset the selected brand
         deviceList.clear();
         deviceList.addAll(fullDevicesList);
+        deviceAdapter.notifyDataSetChanged();
+        typeAdapter.resetSelection();
+        brandAdapter.resetSelection();
     }
 }

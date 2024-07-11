@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vlnie_commerce.MainActivity;
@@ -19,6 +20,7 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHol
 
     Context context;
     List<Brand> brands;
+    int selectedPosition = -1;
 
     public BrandAdapter(Context context, List<Brand> brands) {
         this.context = context;
@@ -36,10 +38,18 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHol
     public void onBindViewHolder(@NonNull BrandViewHolder holder, int position) {
         holder.brandTitle.setText(brands.get(position).getTitle());
 
+        if (selectedPosition == position) {
+            holder.brandTitle.setTextColor(ContextCompat.getColor(context, R.color.name_of_app)); // Change to the desired color
+        } else {
+            holder.brandTitle.setTextColor(ContextCompat.getColor(context, R.color.black));
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedPosition = position;
                 MainActivity.showDeviceByBrand(brands.get(position).getId());
+                notifyDataSetChanged();
             }
         });
     }
@@ -47,6 +57,11 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHol
     @Override
     public int getItemCount() {
         return brands.size();
+    }
+
+    public void resetSelection() {
+        selectedPosition = -1;
+        notifyDataSetChanged();
     }
 
     public static final class BrandViewHolder extends RecyclerView.ViewHolder {

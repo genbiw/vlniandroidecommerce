@@ -30,7 +30,15 @@ public class DevicePage extends AppCompatActivity {
         deviceText.setText(getIntent().getStringExtra("deviceText"));
 
         ImageView main_icon = findViewById(R.id.main_icon);
+        TextView main_button = findViewById(R.id.main_scene);
         main_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMainPage(DevicePage.this);
+            }
+        });
+
+        main_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToMainPage(DevicePage.this);

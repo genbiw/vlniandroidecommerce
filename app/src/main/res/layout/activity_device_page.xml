@@ -65,6 +65,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:rotation="270"
+            android:clickable="true"
             android:text="@string/main_scene_text"
             android:textColor="@color/black"
             android:textSize="20sp"
