@@ -15,6 +15,9 @@ import com.example.vlnie_commerce.model.Brand;
 import com.example.vlnie_commerce.model.Device;
 import com.example.vlnie_commerce.model.Type;
 
+import org.infobip.mobile.messaging.MobileMessaging;
+import org.infobip.mobile.messaging.mobileapi.MobileMessagingError;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,13 +67,9 @@ public class MainActivity extends AppCompatActivity {
         setDeviceRecycler(deviceList);
 
         ImageView resetFilterImageView = findViewById(R.id.resetFilterImageView);
-        resetFilterImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetFiltering();
-            }
-        });
+        resetFilterImageView.setOnClickListener(v -> resetFiltering());
 
+        new MobileMessaging.Builder(getApplication()).build();
     }
 
     private void initializeDeviceList() {

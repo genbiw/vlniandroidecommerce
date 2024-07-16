@@ -62,5 +62,8 @@ dependencies {
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
 
+    implementation ("com.infobip:infobip-mobile-messaging-android-sdk:12.7.2@aar"){
+        isTransitive = true
+    }
 
 }
