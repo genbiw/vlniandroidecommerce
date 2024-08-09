@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.vlnie_commerce.adapter.TypeAdapter;
 import com.example.vlnie_commerce.adapter.DeviceAdapter;
@@ -68,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView resetFilterImageView = findViewById(R.id.resetFilterImageView);
         resetFilterImageView.setOnClickListener(v -> resetFiltering());
+
+        TextView loginPage = findViewById(R.id.loginPage);
+        loginPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToLoginPage(MainActivity.this);
+            }
+        });
 
         new MobileMessaging.Builder(getApplication()).build();
     }
@@ -156,5 +167,10 @@ public class MainActivity extends AppCompatActivity {
         deviceAdapter.notifyDataSetChanged();
         typeAdapter.resetSelection();
         brandAdapter.resetSelection();
+    }
+
+    public static void goToLoginPage (Context context) {
+        Intent intent = new Intent(context, LoginPage.class);
+        context.startActivity(intent);
     }
 }

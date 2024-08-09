@@ -44,10 +44,23 @@ public class DevicePage extends AppCompatActivity {
                 goToMainPage(DevicePage.this);
             }
         });
+
+        TextView loginPage = findViewById(R.id.loginPage);
+        loginPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToLoginPage(DevicePage.this);
+            }
+        });
     }
 
     public static void goToMainPage(Context context){
         Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void goToLoginPage(Context context){
+        Intent intent = new Intent(context, LoginPage.class);
         context.startActivity(intent);
     }
 }
