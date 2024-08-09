@@ -18,6 +18,7 @@ public class LoginPage extends AppCompatActivity {
 
         ImageView main_icon = findViewById(R.id.main_icon);
         TextView main_button = findViewById(R.id.main_scene);
+        TextView singUpLink = findViewById(R.id.singuplink);
 
         main_icon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,10 +33,22 @@ public class LoginPage extends AppCompatActivity {
                 goToMainPage(LoginPage.this);
             }
         });
+
+        singUpLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToRegistrationPage(LoginPage.this);
+            }
+        });
     }
 
     public static void goToMainPage (Context context) {
         Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void goToRegistrationPage (Context context){
+        Intent intent = new Intent(context, Registration.class);
         context.startActivity(intent);
     }
 }
