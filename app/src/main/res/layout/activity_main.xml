@@ -50,7 +50,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:rotation="270"
-            android:text="@string/about_text"
+            android:text="@string/login_text"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/contacts"

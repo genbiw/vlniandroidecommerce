@@ -18,4 +18,11 @@
     <string name="device_info">Model year: 2023. \nDisplay diagonal, inch: 6.1. \nDisplay resolution: 1080x2640</string>
     <string name="couse_desc">The Java training program is designed for beginners in this area. For the program you will study the construction of graphic applications for PCs, the development of web sites based on Java Spring Boot, study the construction of full -fledged android applications and perfectly study the Java language itself!</string>
     <string name="infobip_application_code">bf2c400d3f1f52722b4d38e5dd2f8d3a-4ba5c5e9-927e-4f51-b86e-63ee32e838a6</string>
+    <string name="authorisation_title">Authorisation</string>
+    <string name="email_input">Enter email</string>
+    <string name="password_input">Enter password</string>
+    <string name="login_button">LOG IN</string>
+    <string name="login_text">Log in</string>
+    <string name="dont_have_accont_text">Don\'t have an account yet?</string>
+    <string name="link_to_registration">Sign up here</string>
 </resources>
