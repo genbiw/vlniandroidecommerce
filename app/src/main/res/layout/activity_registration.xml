@@ -87,7 +87,6 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat_bold"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -98,14 +97,14 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -115,9 +114,11 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameInput2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/enter_name"
+                        android:focusable="true"
                         android:textAlignment="center" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -130,6 +131,24 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_name"
+                        android:focusable="true"
+                        android:textAlignment="center" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginBottom="20dp"
+                    app:hintTextAppearance="@style/CenteredHintText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ageInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/enter_age"
@@ -145,6 +164,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/countryInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/enter_country"
@@ -160,6 +180,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/cityInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/enter_city"
@@ -175,6 +196,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/addressInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/enter_address"
@@ -190,6 +212,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/email_input"
@@ -205,6 +228,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/password_input"
@@ -220,6 +244,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/confirmPasswordInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/confirm_password_input"
@@ -235,6 +260,7 @@
                     app:hintTextAppearance="@style/CenteredHintText">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/phone_input"
@@ -246,7 +272,7 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonRegistration"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
