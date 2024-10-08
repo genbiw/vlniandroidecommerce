@@ -1,5 +1,6 @@
 package com.example.vlnie_commerce;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -102,6 +103,11 @@ public class Registration extends AppCompatActivity {
                 "Confirm Password: " + confirmPassword + "\n" +
                 "Phone: " + phone;
 
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        // Create and show an AlertDialog
+        new AlertDialog.Builder(context)
+                .setTitle("Collected Data")
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
     }
 }
