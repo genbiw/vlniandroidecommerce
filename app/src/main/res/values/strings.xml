@@ -36,4 +36,5 @@
     <string name="registratiion_button">Registration</string>
     <string name="have_an_account_text">Have an account?</string>
     <string name="link_to_authorisation">Sign up here</string>
+    <string name="enter_gender">Enter your gender</string>
 </resources>

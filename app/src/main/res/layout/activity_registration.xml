@@ -38,7 +38,7 @@
             android:text="@string/contacts_text"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/main_icon"
+            app:layout_constraintBottom_toTopOf="@id/main_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,7 +52,7 @@
             android:text="@string/login_text"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/contacts"
+            app:layout_constraintBottom_toTopOf="@id/contacts"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -67,24 +67,25 @@
             android:text="@string/main_scene_text"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/loginPage"
+            app:layout_constraintBottom_toTopOf="@id/loginPage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainSection"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toEndOf="@id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/registrationTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
@@ -92,36 +93,27 @@
             android:paddingBottom="5dp"
             android:text="@string/registration_title"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/scrollView" />
 
         <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1">
+            android:layout_height="500dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registrationTitle"
+            app:layout_constraintBottom_toTopOf="@id/buttonRegistration">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="40dp"
-                    android:layout_marginBottom="20dp"
-                    app:hintTextAppearance="@style/CenteredHintText">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nameInput2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/enter_name"
-                        android:focusable="true"
-                        android:textAlignment="center" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -135,11 +127,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/enter_name"
-                        android:focusable="true"
                         android:textAlignment="center" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Additional TextInputLayouts for the form -->
+                <!-- Gender -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginBottom="20dp"
+                    app:hintTextAppearance="@style/CenteredHintText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/genderInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_gender"
+                        android:textAlignment="center" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Age -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -156,6 +166,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Country -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,6 +183,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- City -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -188,6 +200,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Address -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -204,6 +217,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Email -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -220,6 +234,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Password -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -236,6 +251,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Confirm Password -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -252,6 +268,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Phone -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -281,14 +298,21 @@
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/registratiion_button"
             android:textColor="@color/black"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scrollView"
+            app:layout_constraintBottom_toTopOf="@id/linkToLoginPageSection" />
 
         <LinearLayout
+            android:id="@+id/linkToLoginPageSection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
-
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonRegistration"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/textView2"
@@ -299,13 +323,13 @@
                 android:text="@string/have_an_account_text" />
 
             <TextView
-                android:id="@+id/singuplink"
+                android:id="@+id/go_to_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="@string/link_to_authorisation" />
-        </LinearLayout>
+                android:text="@string/login_text" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
