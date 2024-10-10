@@ -102,6 +102,7 @@
             app:hintTextAppearance="@style/CenteredHintText">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email_input"
@@ -117,6 +118,7 @@
             app:hintTextAppearance="@style/CenteredHintText">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password_input"
@@ -125,7 +127,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonLogin"
             android:layout_width="200dp"
             android:layout_height="0dp"
             android:layout_gravity="center"

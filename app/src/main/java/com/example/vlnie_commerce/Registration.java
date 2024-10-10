@@ -17,7 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class Registration extends AppCompatActivity {
 
-    private TextInputEditText nameInput, ageInput, countryInput, cityInput, addressInput, emailInput, passwordInput, confirmPasswordInput, phoneInput;
+    private TextInputEditText nameInput, genderInput, ageInput, countryInput, cityInput, addressInput, emailInput, passwordInput, confirmPasswordInput, phoneInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,10 @@ public class Registration extends AppCompatActivity {
         ImageView mainIcon = findViewById(R.id.main_icon);
         TextView mainButton = findViewById(R.id.main_scene);
         TextView logInPage = findViewById(R.id.loginPage);
+        TextView go_to_login = findViewById(R.id.go_to_login);
 
         nameInput = findViewById(R.id.nameInput);
+        genderInput = findViewById(R.id.genderInput);
         ageInput = findViewById(R.id.ageInput);
         countryInput = findViewById(R.id.countryInput);
         cityInput = findViewById(R.id.cityInput);
@@ -37,7 +39,6 @@ public class Registration extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         confirmPasswordInput = findViewById(R.id.confirmPasswordInput);
         phoneInput = findViewById(R.id.phoneInput);
-
 
         Button buttonRegistration = findViewById(R.id.buttonRegistration);
 
@@ -57,6 +58,13 @@ public class Registration extends AppCompatActivity {
         });
 
         logInPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToLoginPage(Registration.this);
+            }
+        });
+
+        go_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToLoginPage(Registration.this);
@@ -83,6 +91,7 @@ public class Registration extends AppCompatActivity {
 
     public void showCollectedData (Context context){
         String name = nameInput.getText().toString();
+        String gender = genderInput.getText().toString();
         String age = ageInput.getText().toString();
         String country = countryInput.getText().toString();
         String city = cityInput.getText().toString();
@@ -94,6 +103,7 @@ public class Registration extends AppCompatActivity {
 
         // Formatting the collected data into a single message
         String message = "Name: " + name + "\n" +
+                "Gender: " + gender + "\n" +
                 "Age: " + age + "\n" +
                 "Country: " + country + "\n" +
                 "City: " + city + "\n" +
