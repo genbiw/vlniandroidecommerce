@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,7 @@ public class LoginPage extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attemptLogin(LoginPage.this);
+                attemptLogin(LoginPage.this);  // Pass the context to the attemptLogin method
             }
         });
 
@@ -82,16 +83,6 @@ public class LoginPage extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-    public void showCollectedData (Context context){
-        String email = emailInput.getText().toString();
-        String password = passwordInput.getText().toString();
-
-        String message = "Email: " + email + "\n" +
-                "Password: " + password;
-
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -105,14 +96,13 @@ public class LoginPage extends AppCompatActivity {
         // Log the input values
         Log.d("LoginPage", "Attempting login with email: " + email + " and password: " + password);
 
-
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(context, "Please enter email and password", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Submit the task to the executor service
-        Future<String> future = executorService.submit(new LoginTask(email, password));
+        Future<String> future = executorService.submit(new LoginTask(context, email, password)); // Pass context to LoginTask
 
         try {
             // Retrieve the result of the background task
@@ -121,8 +111,6 @@ public class LoginPage extends AppCompatActivity {
             if (result != null) {
                 // Log the successful result
                 Log.d("LoginPage", "Login successful: " + result);
-
-                Toast.makeText(context, "Login successful: " + result, Toast.LENGTH_LONG).show();
                 goToMainPage(context);
             } else {
                 Toast.makeText(context, "Login failed. Please try again.", Toast.LENGTH_LONG).show();
@@ -135,20 +123,21 @@ public class LoginPage extends AppCompatActivity {
 
     // The background task for logging in
     private static class LoginTask implements Callable<String> {
+        private final Context context;  // Add context as a field
         private final String email;
         private final String password;
 
-        LoginTask(String email, String password) {
+        LoginTask(Context context, String email, String password) {
+            this.context = context;  // Initialize the context
             this.email = email;
             this.password = password;
         }
 
         @Override
         public String call() {
-            Login login = new Login();
+            Login login = new Login(context);  // Use the context passed to LoginTask
             // Replace "your-api-url" with the actual URL of your API endpoint
             return login.loginUser("http://10.38.30.117:5000/api/user/login", email, password);
         }
     }
-
 }
