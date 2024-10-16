@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -71,6 +72,18 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView resetFilterImageView = findViewById(R.id.resetFilterImageView);
         resetFilterImageView.setOnClickListener(v -> resetFiltering());
+
+        //Retrieve the token to check if user is authorized
+
+        SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+        Boolean isAuth = sharedPreferences.getBoolean("isAuth", false);
+        String token = sharedPreferences.getString("token", null);  // Retrieve the token, null if not set
+
+        if (token != null) {
+            // User is authenticated, you can use the token for requests
+        } else {
+            // Token is not available, user might not be logged in
+        }
 
         TextView loginPage = findViewById(R.id.loginPage);
         loginPage.setOnClickListener(new View.OnClickListener() {
