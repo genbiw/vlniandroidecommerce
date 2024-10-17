@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -89,7 +90,14 @@ public class MainActivity extends AppCompatActivity {
         loginPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToLoginPage(MainActivity.this);
+                Log.d("mainPage", "isAuth = " + isAuth);
+                Log.d("mainPage", "token = " + token);
+                if(!isAuth){
+                    goToLoginPage(MainActivity.this);
+                }else{
+                    goToUserPage(MainActivity.this);
+                }
+
             }
         });
 
@@ -172,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         deviceAdapter.notifyDataSetChanged();
     }
 
-    public void resetFiltering(){
+    private void resetFiltering(){
         selectedType = -1;  // Reset the selected type
         selectedBrand = -1; // Reset the selected brand
         deviceList.clear();
@@ -182,8 +190,13 @@ public class MainActivity extends AppCompatActivity {
         brandAdapter.resetSelection();
     }
 
-    public static void goToLoginPage (Context context) {
+    private static void goToLoginPage (Context context) {
         Intent intent = new Intent(context, LoginPage.class);
+        context.startActivity(intent);
+    }
+
+    private static void goToUserPage (Context context){
+        Intent intent = new Intent(context, user.class);
         context.startActivity(intent);
     }
 }

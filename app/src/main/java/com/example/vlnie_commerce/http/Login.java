@@ -71,6 +71,7 @@ public class Login {
                     SharedPreferences sharedPreferences = context.getSharedPreferences("userPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("token", token);  // Save token in SharedPreferences
+                    editor.putBoolean("isAuth", true);  // Save isAuth in SharedPreferences
                     editor.apply();  // Apply changes to SharedPreferences
 
                     Log.d("LoginAPI", "Token stored in SharedPreferences: " + token);  // Log token for debugging
