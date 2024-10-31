@@ -92,9 +92,10 @@
         android:layout_marginVertical="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userName"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="Vladimir"
+            android:text="Name"
             android:textSize="15sp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
@@ -113,9 +114,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userGender"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="male"
+            android:text="gender"
             android:gravity="center"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
@@ -133,9 +135,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userAge"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="34"
+            android:text="0"
             android:gravity="center"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
@@ -153,10 +156,11 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userCountry"
             android:layout_width="200dp"
             android:layout_height="24dp"
             android:gravity="center"
-            android:text="Croatia"
+            android:text="Country"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
             android:background="@drawable/textview_border"
@@ -173,9 +177,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userCity"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="Vodnjan"
+            android:text="City"
             android:textSize="15sp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
@@ -193,9 +198,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userStreet"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="Pian 35"
+            android:text="Street"
             android:gravity="center"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
@@ -213,9 +219,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userEmail"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="genbiw@gmail.com"
+            android:text="email"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
             android:gravity="center"
@@ -233,9 +240,10 @@
         android:layout_marginBottom="40dp"
         android:layout_marginStart="50dp">
         <TextView
+            android:id="@+id/userPhone"
             android:layout_width="200dp"
             android:layout_height="24dp"
-            android:text="77756006270"
+            android:text="0"
             android:gravity="center"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
@@ -247,17 +255,35 @@
             android:src="@drawable/edit"/>
     </LinearLayout>
 
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/button_with_border"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Save"
-            android:textSize="20sp"
-            android:textIsSelectable="true"
-            android:textColor="@color/black"/>
+            android:gravity="center">
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/button_with_border"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Save"
+                android:textSize="20sp"
+                android:textIsSelectable="true"
+                android:textColor="@color/black"
+                android:layout_marginEnd="20dp"/>
+            <Button
+                android:id="@+id/logOutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/button_with_border"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="logOut"
+                android:textSize="20sp"
+                android:textIsSelectable="true"
+                android:textColor="@color/black"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
